@@ -30,6 +30,14 @@ BEGIN_MESSAGE_MAP(CSketchpadView, CView)
 	ON_COMMAND(ID_BUTTON_SOLID, OnButtonSolid)
 	ON_COMMAND(ID_BUTTON_STICK, OnButtonStick)
 	ON_COMMAND(ID_BUTTON_THREAD, OnButtonThread)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_BLACK, OnUpdateButtonBlack)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_BLUE, OnUpdateButtonBlue)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_DASH, OnUpdateButtonDash)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_GREEN, OnUpdateButtonGreen)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_RED, OnUpdateButtonRed)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_SOLID, OnUpdateButtonSolid)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_STICK, OnUpdateButtonStick)
+	ON_UPDATE_COMMAND_UI(ID_BUTTON_THREAD, OnUpdateButtonThread)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -199,4 +207,52 @@ void CSketchpadView::OnButtonThread()
 {
 	// TODO: Add your command handler code here
 	l.thick = 1;
+}
+
+void CSketchpadView::OnUpdateButtonBlack(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.color == RGB(0,0,0));
+}
+
+void CSketchpadView::OnUpdateButtonBlue(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.color == RGB(0,0,255));
+}
+
+void CSketchpadView::OnUpdateButtonDash(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.style == PS_DASHDOT);
+}
+
+void CSketchpadView::OnUpdateButtonGreen(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.color == RGB(0,255,0));
+}
+
+void CSketchpadView::OnUpdateButtonRed(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.color == RGB(255,0,0));
+}
+
+void CSketchpadView::OnUpdateButtonSolid(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.style == PS_SOLID);
+}
+
+void CSketchpadView::OnUpdateButtonStick(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.thick == 4);
+}
+
+void CSketchpadView::OnUpdateButtonThread(CCmdUI* pCmdUI) 
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->SetCheck(l.thick == 1);
 }

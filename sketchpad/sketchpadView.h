@@ -61,6 +61,14 @@ protected:
 	afx_msg void OnButtonSolid();
 	afx_msg void OnButtonStick();
 	afx_msg void OnButtonThread();
+	afx_msg void OnUpdateButtonBlack(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonBlue(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonDash(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonGreen(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonRed(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonSolid(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonStick(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateButtonThread(CCmdUI* pCmdUI);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
