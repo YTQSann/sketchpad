@@ -58,10 +58,27 @@ void CSketchpadDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
+		CLine *t;
+		POSITION p = list.GetHeadPosition();
+		ar<<list.GetCount();
+		while(p)
+		{
+			t = (CLine*)list.GetNext(p);
+			ar<<t->start<<t->end<<t->color<<t->style<<t->thick;
+		}
 	}
 	else
 	{
 		// TODO: add loading code here
+		CLine *t;
+		int n , i;
+		ar>>n;
+		for(i = 0 ; i < n ; i++)
+		{
+			t = new CLine;
+			ar>>t->start>>t->end>>t->color>>t->style>>t->thick;
+			list.AddTail((CObject*)t);
+		}
 	}
 }
 
