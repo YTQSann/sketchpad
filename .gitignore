@@ -30,7 +30,12 @@
 *.exe
 *.out
 *.app
+*.ncb
 
+# Release
+sketchpad/Release/
+
+*.opt
 # Debug
 sketchpad/Debug/
 
