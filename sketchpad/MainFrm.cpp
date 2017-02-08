@@ -59,6 +59,28 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // fail to create
 	}
 
+	//my code start
+	//colorbar
+	m_ColorBar.CreateEx(this,TBSTYLE_FLAT,WS_CHILD|WS_VISIBLE|CBRS_RIGHT|CBRS_GRIPPER|CBRS_TOOLTIPS|CBRS_SIZE_DYNAMIC|CBRS_BORDER_TOP);
+	m_ColorBar.GetToolBarCtrl().SetBitmapSize(CSize(16,16));
+	m_ColorBar.GetToolBarCtrl().SetButtonSize(CSize(24,24));
+	m_ColorBar.LoadToolBar(IDR_COLOR);
+	RepositionBars(AFX_IDW_CONTROLBAR_FIRST,AFX_IDW_CONTROLBAR_LAST,0);
+	m_ColorBar.EnableDocking(CBRS_ALIGN_ANY);                             //following three lines make colorbar to be dockable
+	EnableDocking(CBRS_ALIGN_ANY);
+	DockControlBar(&m_ColorBar);
+
+	//stylebar
+	m_StyleBar.CreateEx(this,TBSTYLE_FLAT,WS_CHILD|WS_VISIBLE|CBRS_LEFT|CBRS_GRIPPER|CBRS_TOOLTIPS|CBRS_SIZE_DYNAMIC|CBRS_BORDER_TOP);
+	m_StyleBar.GetToolBarCtrl().SetBitmapSize(CSize(16,16));
+	m_StyleBar.GetToolBarCtrl().SetButtonSize(CSize(24,24));
+	m_StyleBar.LoadToolBar(IDR_STYLE);
+	RepositionBars(AFX_IDW_CONTROLBAR_FIRST,AFX_IDW_CONTROLBAR_LAST,0);
+	m_StyleBar.EnableDocking(CBRS_ALIGN_ANY);                             //following three lines make colorbar to be dockable
+	EnableDocking(CBRS_ALIGN_ANY);
+	DockControlBar(&m_StyleBar);
+	//my code end
+
 	if (!m_wndStatusBar.Create(this) ||
 		!m_wndStatusBar.SetIndicators(indicators,
 		  sizeof(indicators)/sizeof(UINT)))
