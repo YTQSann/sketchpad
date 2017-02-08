@@ -2,22 +2,23 @@
 
 [General Info]
 Version=1
-LastClass=CAboutDlg
+LastClass=CSketchpadView
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "sketchpad.h"
 LastPage=0
 
-ClassCount=9
+ClassCount=5
 Class1=CSketchpadApp
 Class2=CSketchpadDoc
 Class3=CSketchpadView
 Class4=CMainFrame
-Class9=CAboutDlg
 
-ResourceCount=2
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+ResourceCount=3
+Resource1=IDR_COLOR
+Resource2=IDR_MAINFRAME
+Resource3=IDD_ABOUTBOX
+Class5=CAboutDlg
 
 [CLS:CSketchpadApp]
 Type=0
@@ -45,6 +46,7 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
+LastObject=CMainFrame
 
 
 
@@ -54,6 +56,7 @@ Type=0
 HeaderFile=sketchpad.cpp
 ImplementationFile=sketchpad.cpp
 Filter=D
+LastObject=ID_BUTTON_BLACK
 
 [DLG:IDD_ABOUTBOX]
 Type=1
@@ -116,4 +119,13 @@ Command6=ID_EDIT_PASTE
 Command7=ID_FILE_PRINT
 Command8=ID_APP_ABOUT
 CommandCount=8
+
+[TB:IDR_COLOR]
+Type=1
+Class=?
+Command1=ID_BUTTON_BLACK
+Command2=ID_BUTTON_RED
+Command3=ID_BUTTON_GREEN
+Command4=ID_BUTTON_BLUE
+CommandCount=4
 

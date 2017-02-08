@@ -22,6 +22,10 @@ BEGIN_MESSAGE_MAP(CSketchpadView, CView)
 	//{{AFX_MSG_MAP(CSketchpadView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
+	ON_COMMAND(ID_BUTTON_BLACK, OnButtonBlack)
+	ON_COMMAND(ID_BUTTON_BLUE, OnButtonBlue)
+	ON_COMMAND(ID_BUTTON_GREEN, OnButtonGreen)
+	ON_COMMAND(ID_BUTTON_RED, OnButtonRed)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -135,4 +139,28 @@ void CSketchpadView::OnLButtonUp(UINT nFlags, CPoint point)
 	Invalidate();
 
 	CView::OnLButtonUp(nFlags, point);
+}
+
+void CSketchpadView::OnButtonBlack() 
+{
+	// TODO: Add your command handler code here
+	l.color = RGB(0,0,0);
+}
+
+void CSketchpadView::OnButtonBlue() 
+{
+	// TODO: Add your command handler code here
+	l.color = RGB(0,0,255);
+}
+
+void CSketchpadView::OnButtonGreen() 
+{
+	// TODO: Add your command handler code here
+	l.color = RGB(0,255,0);
+}
+
+void CSketchpadView::OnButtonRed() 
+{
+	// TODO: Add your command handler code here
+	l.color = RGB(255,0,0);
 }
