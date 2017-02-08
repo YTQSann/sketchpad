@@ -38,4 +38,6 @@ sketchpad/Debug/
 *.aps
 
 # Visual Studio 6 build log
-*plg
+*.plg
+*.ncb
+*.opt
