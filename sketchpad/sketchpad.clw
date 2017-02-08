@@ -17,8 +17,8 @@ Class4=CMainFrame
 ResourceCount=3
 Resource1=IDR_COLOR
 Resource2=IDR_MAINFRAME
-Resource3=IDD_ABOUTBOX
 Class5=CAboutDlg
+Resource3=IDD_ABOUTBOX
 
 [CLS:CSketchpadApp]
 Type=0
