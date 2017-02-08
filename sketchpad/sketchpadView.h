@@ -57,6 +57,10 @@ protected:
 	afx_msg void OnButtonBlue();
 	afx_msg void OnButtonGreen();
 	afx_msg void OnButtonRed();
+	afx_msg void OnButtonDash();
+	afx_msg void OnButtonSolid();
+	afx_msg void OnButtonStick();
+	afx_msg void OnButtonThread();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

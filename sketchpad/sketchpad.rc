@@ -77,6 +77,7 @@ IDR_SKETCHTYPE          ICON    DISCARDABLE     "res\\sketchpadDoc.ico"
 
 IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
 IDR_COLOR               BITMAP  DISCARDABLE     "res\\toolbar1.bmp"
+IDR_STYLE               BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -104,6 +105,14 @@ BEGIN
     BUTTON      ID_BUTTON_RED
     BUTTON      ID_BUTTON_GREEN
     BUTTON      ID_BUTTON_BLUE
+END
+
+IDR_STYLE TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BUTTON_THREAD
+    BUTTON      ID_BUTTON_STICK
+    BUTTON      ID_BUTTON_SOLID
+    BUTTON      ID_BUTTON_DASH
 END
 
 

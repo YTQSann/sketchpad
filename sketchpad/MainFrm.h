@@ -42,6 +42,7 @@ protected:  // control bar embedded members
 
 // Generated message map functions
 protected:
+	CToolBar m_StyleBar;
 	CToolBar m_ColorBar;
 	//{{AFX_MSG(CMainFrame)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
