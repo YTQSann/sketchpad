@@ -9,6 +9,14 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+struct CLine
+{
+	CPoint start;     //ÆğÊ¼üc
+	CPoint end;       //½KÖ¹üc
+	COLORREF color;   //¾€—lîÉ«
+	int thick;        //¾€—l´Ö¼š
+	int style;        //¾€—lÌ“Œ
+};
 
 class CSketchpadDoc : public CDocument
 {
@@ -32,6 +40,7 @@ public:
 
 // Implementation
 public:
+	CObList list;
 	virtual ~CSketchpadDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;

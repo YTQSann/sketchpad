@@ -20,8 +20,8 @@ IMPLEMENT_DYNCREATE(CSketchpadView, CView)
 
 BEGIN_MESSAGE_MAP(CSketchpadView, CView)
 	//{{AFX_MSG_MAP(CSketchpadView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_WM_LBUTTONDOWN()
+	ON_WM_LBUTTONUP()
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
@@ -34,8 +34,10 @@ END_MESSAGE_MAP()
 
 CSketchpadView::CSketchpadView()
 {
-	// TODO: add construction code here
-
+	isFinished = false;
+	l.color = 0;
+	l.thick = 1;
+	l.style = PS_SOLID;
 }
 
 CSketchpadView::~CSketchpadView()
@@ -57,7 +59,22 @@ void CSketchpadView::OnDraw(CDC* pDC)
 {
 	CSketchpadDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
-	// TODO: add draw code for native data here
+	CPen pen , *oldpen;
+	CObList *list = &pDoc->list;
+	if(isFinished)
+		list->AddTail((CObject*)new CLine(l));
+	POSITION p = list->GetHeadPosition();
+	CLine *t;
+	while(p){
+		t = (CLine*)list->GetNext(p);
+		pen.CreatePen(t->style,t->thick,t->color);
+		oldpen = pDC->SelectObject(&pen);
+		pDC->MoveTo(t->start);
+		pDC->LineTo(t->end);
+		pDC->SelectObject(oldpen);
+		pen.DeleteObject();
+	}
+	isFinished = false;
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -102,3 +119,20 @@ CSketchpadDoc* CSketchpadView::GetDocument() // non-debug version is inline
 
 /////////////////////////////////////////////////////////////////////////////
 // CSketchpadView message handlers
+
+void CSketchpadView::OnLButtonDown(UINT nFlags, CPoint point) 
+{
+	l.start = point;
+	isFinished = false;
+	
+	CView::OnLButtonDown(nFlags, point);
+}
+
+void CSketchpadView::OnLButtonUp(UINT nFlags, CPoint point) 
+{
+	l.end = point;
+	isFinished = true;
+	Invalidate();
+
+	CView::OnLButtonUp(nFlags, point);
+}
