@@ -15,8 +15,8 @@ Class3=CSketchpadView
 Class4=CMainFrame
 
 ResourceCount=4
-Resource1=IDR_COLOR
-Resource2=IDR_STYLE
+Resource1=IDR_STYLE
+Resource2=IDR_COLOR
 Class5=CAboutDlg
 Resource3=IDR_MAINFRAME
 Resource4=IDD_ABOUTBOX
@@ -40,7 +40,7 @@ ImplementationFile=sketchpadView.cpp
 Filter=C
 BaseClass=CView
 VirtualFilter=VWC
-LastObject=ID_BUTTON_BLACK
+LastObject=ID_BUTTON_SOLID
 
 
 [CLS:CMainFrame]
