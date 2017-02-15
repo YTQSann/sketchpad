@@ -84,19 +84,26 @@ void CSketchpadView::OnDraw(CDC* pDC)
 	while(p){
 		t = (CLine*)list->GetNext(p);
 		//geometric
-		/*
+		
 		LOGBRUSH logBrush;
-        logBrush.lbStyle = t->style;
+        logBrush.lbStyle = BS_SOLID;  //mention the BS_SOLID
         logBrush.lbColor = t->color;
-		pen.CreatePen(PS_GEOMETRIC|PS_ENDCAP_ROUND,t->thick,&logBrush);
-		*/
+		pen.CreatePen(t->style|PS_GEOMETRIC,t->thick,&logBrush);  //only use first three peremeter
+		oldpen = pDC->SelectObject(&pen);
+		pDC->MoveTo(t->start);
+		pDC->LineTo(t->end);
+		pDC->SelectObject(oldpen);
+		pen.DeleteObject();
+		
 		//cosmetic
+		/*
 		pen.CreatePen(t->style,t->thick,t->color);
 		oldpen = pDC->SelectObject(&pen);
 		pDC->MoveTo(t->start);
 		pDC->LineTo(t->end);
 		pDC->SelectObject(oldpen);
 		pen.DeleteObject();
+		*/
 	}
 	isFinished = false;
 }
